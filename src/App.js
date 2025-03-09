@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Reactions
-        </a>
-      </header>
+export default function Board() {
+    const [text, setText] = useState("Original Text");
+
+    const changeText = () => {
+        setText("Text changed!");
+    };
+return(<>
+<section class='container'>
+<header>Time Zones</header>
+<form action='#' class='form'>
+    <div class='input-box'>
+        <label>Place</label>
+        <input type='text' placeholder='Enter the place'/>
     </div>
-  );
-}
+    <div class='input-box'>
+        <label>time1</label>
+        <input type='time' placeholder='Enter the time'/>
+        <div class='input-box'>
+        <label>time2</label>
+        <input type='time' placeholder='Enter the time'/>
+    </div>
+    <div id="box">{text}</div>
 
-export default App;
+<button type="button" onClick={changeText}>Click Me</button>
+    </div>
+</form>
+</section>
+
+</>);
+}
